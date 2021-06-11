@@ -1,4 +1,4 @@
-# whales_trajectories
+# Whales trajectories processing with Neural Ordinary Differential Equations
 
 ## trajectory.py 
 
