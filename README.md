@@ -6,7 +6,11 @@ It contains tools for processing trajectory data.
 
 ## dataset.py
 
-It contains all dataset builder. All trajectories data are like : {'traj': traj, 't': t} where traj has shape () and t ().
+It contains all dataset builder. All trajectories data are like : {'traj': traj, 't': t, 'specy'} where traj has shape () and t ().
+
+data_3D() : 15 trajectories of 3D locations of sprem whales off the coast of Antibes 
+
+
 
 ## transform_dataset.py
 
