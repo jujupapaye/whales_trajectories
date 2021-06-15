@@ -27,6 +27,11 @@ FinAndBlueWhalesCaliforniaTimedTraj(): Trajectory per animals of the california 
 
 data_3D() : 15 trajectories of 3D locations of sprem whales off the coast of Antibes 
 
+All constructors have these options (default: False): 
+- add_p0=True : add the point of departure to every point. The data size then increases by 2 (or 3 for 3D data). And every point is representing as : (x,y,t,x0,y0)
+- normalizeXY=True : normalize the coordinates of the trajectory between 0 and 1
+- normalizeT=True : normalize the time t between 0 and 1 (advised)
+
 
 
 ## transform_dataset.py
