@@ -38,9 +38,14 @@ All constructors have these options (default: False):
 
 It contains all transformations that we can applied to trajectories data. (rotation, translation...)
 
-## models_odenet.py and models.py
+## models_odenet.py
 
-It contains all necesary to construct ...
+It contains all necesary to construct Neural Ordinary Differential Equations models and normal networks:
+- ODEFunc : 3 linear layer with tanh non linearity
+- ODENet : Odefunc mapping + 1 linear layer to do regression or classification
+- ConvODEFunc : convolutional ode function
+- ConvODENet : ConvODEFunc block + 1 linear layer to do regression or classification
+and more.
 
 ## SCRIPT THAT WE CAN EXECUTE
 
