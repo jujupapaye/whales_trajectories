@@ -46,12 +46,21 @@ It contains all necesary to construct ...
 
 ## SCRIPT THAT WE CAN EXECUTE
 
-### run_dynamics.py
+### train.py 
+usage : train.py [-h] [--dataset {toulon,3D_data}] [--hidden_size HIDDEN_SIZE] [--mode {normal,add_p0,random}] [--epochs EPOCHS] [--stoch_coeff STOCH_COEFF]
 
-### run_with_p0.py
+Used to train and build a NODE model from trajectory dataset (Toulon's fin whales or sperm whales 3D). The constructed model is an ODEFunc as defined in models_odenet.py. We can parametrized the hidden_size in option (default 150). The number of epochs can be chosen too (default 200). 
 
-### run_adding_random.py
+Parameter --mode:
+- normal :
+- add_p0 :
+- random :
 
-### run_latent_ode.py
+The learned function is then saved in model/odefunc_ .pt where ... 
 
+Once the model is learned and save, we can generate trajectories and the corresponding vector plot with generate_trajectories.py, and generate_vector_plot.py respectively.
+
+## generate_trajectories.py
+
+## generate_vector_plot.py
 
