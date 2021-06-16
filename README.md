@@ -38,8 +38,6 @@ All constructors have these options (default: False):
 
 It contains all transformations that we can applied to trajectories data. (rotation, translation...)
 
-## generate_trajectory.py
-
 ## models_odenet.py and models.py
 
 It contains all necesary to construct ...
@@ -61,6 +59,8 @@ The learned function is then saved in model/odefunc_ .pt where ...
 Once the model is learned and save, we can generate trajectories and the corresponding vector plot with generate_trajectories.py, and generate_vector_plot.py respectively.
 
 ## generate_trajectories.py
+usage : generate_trajectories.py [--model {odefunc.pt}] [--nb NB] [--t T]
 
 ## generate_vector_plot.py
+usage : generate_vector_plot.py [--model {odefunc.pt}]
 
