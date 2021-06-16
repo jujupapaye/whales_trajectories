@@ -63,13 +63,21 @@ The learned function is then saved in model/odefunc_ .pt where ...
 
 Once the model is learned and save, we can generate trajectories and the corresponding vector plot with generate_trajectories.py, and generate_vector_plot.py respectively.
 
-## generate_trajectories.py
+### generate_trajectories.py
 usage : generate_trajectories.py [--model {odefunc.pt}] [--nb NB] [--t T]
 
 Generate and show NB trajectories from odefunc.pt model learned previously with train.py
 
-## generate_vector_plot.py
+### generate_vector_plot.py
 usage : generate_vector_plot.py [--model {odefunc.pt}]
 
 Generate and show the corresponding vector plot from the odefunc.pt function learned previously with train.py.
+
+## APPENDIX FOLDERS
+
+### model/
+
+### torchdiffeq/
+
+torchdiffeq is a library for solving differential equations numerically using PyTorch (See https://github.com/rtqichen/torchdiffeq). We use a version of this modified version of this library which added a numerical solver for stochastic equations.(See https://github.com/AlexandraVolokhova/stochasticity_in_neural_ode).
 
