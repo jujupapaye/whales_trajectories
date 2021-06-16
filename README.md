@@ -66,8 +66,10 @@ Once the model is learned and save, we can generate trajectories and the corresp
 ## generate_trajectories.py
 usage : generate_trajectories.py [--model {odefunc.pt}] [--nb NB] [--t T]
 
-Generate NB trajectories from odefunc.pt model learned previously with train.py
+Generate and show NB trajectories from odefunc.pt model learned previously with train.py
 
 ## generate_vector_plot.py
 usage : generate_vector_plot.py [--model {odefunc.pt}]
+
+Generate and show the corresponding vector plot from the odefunc.pt function learned previously with train.py.
 
