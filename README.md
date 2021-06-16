@@ -79,5 +79,5 @@ Generate and show the corresponding vector plot from the odefunc.pt function lea
 
 ### torchdiffeq/
 
-torchdiffeq is a library for solving differential equations numerically using PyTorch (See https://github.com/rtqichen/torchdiffeq). We use a version of this modified version of this library which added a numerical solver for stochastic equations.(See https://github.com/AlexandraVolokhova/stochasticity_in_neural_ode).
+torchdiffeq is a library for solving differential equations numerically using PyTorch (See https://github.com/rtqichen/torchdiffeq). We use a modified version of this library which added a numerical solver for stochastic equations.(See https://github.com/AlexandraVolokhova/stochasticity_in_neural_ode).
 
