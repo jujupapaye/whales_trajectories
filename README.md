@@ -40,7 +40,7 @@ It contains all transformations that we can applied to trajectories data. (rotat
 
 ## models_odenet.py
 
-It contains all necesary to construct Neural Ordinary Differential Equations models and normal networks:
+It contains all necesary to construct some Neural Ordinary Differential Equations models and some normal networks:
 - ODEFunc : 3 linear layer with tanh non linearity
 - ODENet : Odefunc mapping + 1 linear layer to do regression or classification
 - ConvODEFunc : convolutional ode function
