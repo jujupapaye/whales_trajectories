@@ -54,12 +54,12 @@ usage : train.py [-h] [--dataset {toulon,3D_data}] [--hidden_size HIDDEN_SIZE] [
 
 Used to train and build a NODE model from trajectory dataset (Toulon's fin whales or sperm whales 3D). The constructed model is an ODEFunc as defined in models_odenet.py. We can parametrized the hidden_size in option (default 150). The number of epochs can be chosen too (default 200). 
 
-Parameter --mode:
-- normal :
-- add_p0 :
-- random :
+Parameter --mode => we give different input to our network depending on the mode, a point of a trajectory will be:
+- normal : (x,y,t)
+- add_p0 : (x,y,t,x0,y0) where x0,y0 is the point of departure of the trajectory
+- random : (x,y,t,x0,y0), and we add some random vector at every step of the solver. (See the corresponding paper https://papers.nips.cc/paper/2019/file/59b1deff341edb0b76ace57820cef237-Paper.pdf)
 
-The learned function is then saved in model/odefunc_ .pt where ... 
+The learned function is then saved in model/odefunc_dataset_mode_hidden_size.pt respected to the input parameters chosen. 
 
 Once the model is learned and save, we can generate trajectories and the corresponding vector plot with generate_trajectories.py, and generate_vector_plot.py respectively.
 
@@ -76,6 +76,8 @@ Generate and show the corresponding vector plot from the odefunc.pt function lea
 ## APPENDIX FOLDERS
 
 ### model/
+
+Folder which contains some pre-trained model that we can use directly to generate trajectories.
 
 ### torchdiffeq/
 
