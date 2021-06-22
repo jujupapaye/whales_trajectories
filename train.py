@@ -14,11 +14,11 @@ Training.
 """
 
 parser = argparse.ArgumentParser(description='Training a NODE model with whales trajectories data.')
-parser.add_argument('--dataset', type=str, choices=['toulon', '3D_data'], default='toulon', help="choose dataset to train the model")
+parser.add_argument('--dataset', type=str, choices=['toulon', '3Ddata'], default='toulon', help="choose dataset to train the model")
 parser.add_argument('--hidden_size', type=int, default=150, help="hidden size of the NODE model")
-parser.add_argument('--mode', type=str, choices=['normal', 'add_p0', 'random'], default='random', help="method to train the model")
+parser.add_argument('--mode', type=str, choices=['normal', 'addp0', 'random'], default='random', help="method to train the model")
 parser.add_argument('--epochs', type=int, default=200, help="number of epochs in the training")
-parser.add_argument('--stoch_coeff', type=int, default=0.1, help="how random is the step for random method")
+parser.add_argument('--stoch_coeff', type=float, default=0.1, help="how random is the step for random method")
 args = parser.parse_args()
 
 gpu = 1
@@ -40,14 +40,17 @@ if __name__ == '__main__':
             data_dim = 5  # x,y,t,x0,y0
         else:
             data_dim = 3 # x,y,t
-    elif args.dataset=='3D_data':
+    elif args.dataset=='3Ddata':
         trajectories = dataset.data_3D(add_p0=add_p0, normalizeXYZ=True,normalizeT=True)
         if add_p0:
             data_dim = 7  # x,y,z,t,x0,y0,z0
         else:
             data_dim = 4 # x,y,z,t
-    
-    name_model = 'model/odefunc_' + args.dataset + '_' + args.mode + '_'+str(args.hidden_size)+'.pt'
+    if args.mode == 'random':
+        coef = str(args.stoch_coeff)[0] + str(args.stoch_coeff)[2]
+        name_model = 'model/odefunc_' + args.dataset + '_' + args.mode + coef + '_'+str(args.hidden_size)+'.pt'
+    else:
+        name_model = 'model/odefunc_' + args.dataset + '_' + args.mode + '_'+str(args.hidden_size)+'.pt'
     device = torch.device('cuda:' + str(gpu) if torch.cuda.is_available() else 'cpu')
     hidden_dim = args.hidden_size
     func = ODEFunc(device, data_dim=data_dim, hidden_dim=hidden_dim).to(device)
