@@ -64,7 +64,7 @@ The learned function is then saved in model/odefunc_dataset_mode_hidden_size.pt 
 Once the model is learned and save, we can generate trajectories and the corresponding vector plot with generate_trajectories.py, and generate_vector_plot.py respectively.
 
 ### generate_trajectories.py
-usage : generate_trajectories.py [--model {odefunc.pt}] [--nb NB] [--t T]
+usage : generate_trajectories.py [--model {odefunc.pt}] [--nb NB] 
 
 Generate and show NB trajectories from odefunc.pt model learned previously with train.py
 
