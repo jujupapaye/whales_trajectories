@@ -91,3 +91,19 @@ class TranslateTrajectories(object):
                 translate_traj[i,1] = (traj[i,1] - y0)
                 translate_traj[i,2] = t[i] 
             return {'traj': translate_traj, 't': t , 'specy' : specy}
+
+class AleatoryTranslate3D(object):
+    """Random translation (not on depth z) of all the point of the trajectory (normalized trajectory in 3D)"""
+    def __call__(self, sample):
+            traj, t , specy = sample['traj'], sample['t'], sample['specy']
+            translate_traj = torch.empty_like(traj).copy_(traj)
+            x0, y0, z0 = traj[0,0] ,traj[0,1], traj[0,2]  # first point of trajectory
+            new_x0, new_y0 = np.random.uniform(0.1, 0.9), np.random.uniform(0.1, 0.9)
+            for i in range(traj.shape[0]):
+                translate_traj[i,0] = new_x0 - traj[i,0] + x0 
+                translate_traj[i,1] = new_y0 - traj[i,1] + y0
+                translate_traj[i,2] =  z0
+                translate_traj[i,3] = t[i]
+                if traj.shape[1]>4:
+                    translate_traj[i,4],translate_traj[i,5] = new_x0, new_y0
+            return {'traj': translate_traj, 't': t , 'specy' : specy}
