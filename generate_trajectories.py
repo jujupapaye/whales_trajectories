@@ -51,7 +51,7 @@ if __name__ == '__main__':
         fig = plt.figure()
         ax = fig.add_subplot(111, projection='3d')
     for y0 in departures:
-        l = np.random.uniform(0,1)
+        l = 1
         t = torch.linspace(0, l ,100).to(device)
         y0 = torch.from_numpy(y0).float().to(device)
         if mode[:-2] == 'random':  # random mode
@@ -73,9 +73,9 @@ if __name__ == '__main__':
         plt.ylabel('normalized latitude')
         plt.title('Simulation of fin whales trajectories in 2D')
     else:  # 3D dataset
-        plt.xlabel('x')
-        plt.ylabel('y')
-        #plt.zlabel('z')
+        ax.set_xlabel('x')
+        ax.set_ylabel('y')
+        ax.set_zlabel('z')
         plt.title('Simulation of sperm whales trajectories in 3D')
     plt.grid()
     plt.legend()

@@ -6,11 +6,12 @@ import torch.nn as nn
 import torch.optim as optim 
 import matplotlib.pyplot as plt
 import dataset 
-from transform_dataset import Rotate
+from transform_dataset import Rotate, AleatoryTranslate3D
 import argparse
 
 """
-Training.
+Training of Neural Ordianary Differential Equations models
+from data of cetaceans trajectories.
 """
 
 parser = argparse.ArgumentParser(description='Training a NODE model with whales trajectories data.')
@@ -41,7 +42,7 @@ if __name__ == '__main__':
         else:
             data_dim = 3 # x,y,t
     elif args.dataset=='3Ddata':
-        trajectories = dataset.data_3D(add_p0=add_p0, normalizeXYZ=True,normalizeT=True)
+        trajectories = dataset.data_3D(transform=AleatoryTranslate3D(),add_p0=add_p0, normalizeXYZ=True,normalizeT=True)
         if add_p0:
             data_dim = 7  # x,y,z,t,x0,y0,z0
         else:
@@ -50,7 +51,7 @@ if __name__ == '__main__':
         coef = str(args.stoch_coeff)[0] + str(args.stoch_coeff)[2]
         name_model = 'model/odefunc_' + args.dataset + '_' + args.mode + coef + '_'+str(args.hidden_size)+'.pt'
     else:
-        name_model = 'model/odefunc_' + args.dataset + '_' + args.mode + '_'+str(args.hidden_size)+'.pt'
+        name_model = 'model/odefunc_' + args.dataset + '_' +args.mode + '_'+str(args.hidden_size)+'.pt'
     device = torch.device('cuda:' + str(gpu) if torch.cuda.is_available() else 'cpu')
     hidden_dim = args.hidden_size
     func = ODEFunc(device, data_dim=data_dim, hidden_dim=hidden_dim).to(device)
