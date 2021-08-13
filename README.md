@@ -50,7 +50,7 @@ and more.
 ## SCRIPT THAT WE CAN EXECUTE
 
 ### train.py 
-usage : train.py [-h] [--dataset {toulon,3D_data}] [--hidden_size HIDDEN_SIZE] [--mode {normal,add_p0,random}] [--epochs EPOCHS] [--stoch_coeff STOCH_COEFF]
+usage : train.py [-h] [--dataset {toulon,3Ddata}] [--hidden_size HIDDEN_SIZE] [--mode {normal,add_p0,random}] [--epochs EPOCHS] [--stoch_coeff STOCH_COEFF]
 
 Used to train and build a NODE model from trajectory dataset (Toulon's fin whales or sperm whales 3D). The constructed model is an ODEFunc as defined in models_odenet.py. We can parametrized the hidden_size in option (default 150). The number of epochs can be chosen too (default 200). 
 
